@@ -29,8 +29,8 @@ flutter:
     - images/
   
   fonts:
-    - family: Schyler
+    - family: Amiri
       fonts:
-        - asset: fonts/Schyler-Regular.ttf
-        - asset: fonts/Schyler-Italic.ttf
+        - asset: fonts/Amiri-Regular.ttf
+        
   
