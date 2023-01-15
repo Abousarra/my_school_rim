@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.blue[200],
         drawer: const Drawer(
           child: CircleAvatar(
-            backgroundImage: AssetImage('images/1234.png'),
+            backgroundImage: AssetImage('images/123.png'),
             radius: 10,
           ),
         ),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
               radius: 70,
             ),
             const Text(
-              'أبوبكر الغزالي',
+              'أبوبكر أحمدو الغزالي',
               style: TextStyle(
                   fontFamily: 'Amiri',
                   fontSize: 22,
@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                trailing: Icon(Icons.ramp_right),
+                trailing: Icon(Icons.desktop_access_disabled),
                 onTap: () {},
               ),
             )
