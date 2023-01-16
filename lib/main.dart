@@ -1,13 +1,28 @@
-import 'dart:ui';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatefulWidget {
+  MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int right = 1;
+  int left = 2;
+
+  randomImage() {
+    setState(() {
+      right = Random().nextInt(4) + 1;
+      left = Random().nextInt(4) + 1;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +46,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
         body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             const CircleAvatar(
               backgroundImage: AssetImage('images/1234.png'),
@@ -57,10 +73,42 @@ class MyApp extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
+                subtitle: Text('Whatsapp'),
                 trailing: Icon(Icons.desktop_access_disabled),
                 onTap: () {},
               ),
-            )
+            ),
+            Text(
+              left == right ? 'مبروك لقد فزت' : 'حاول مرة أخرى',
+              style: TextStyle(
+                  fontFamily: 'Amiri',
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold),
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: TextButton(
+                        onPressed: () {
+                          randomImage();
+                        },
+                        child: Image.asset('images/$left.png')),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: TextButton(
+                        onPressed: () {
+                          randomImage();
+                        },
+                        child: Image.asset('images/$right.png')),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
