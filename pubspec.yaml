@@ -29,7 +29,7 @@ flutter_icons:
   web:
     generate: true
     image_path: "images/appstore.png"
-    background_color: "#hexcode"
+    background_color: "#hexcode" 
     theme_color: "#hexcode"
   windows:
     generate: true
