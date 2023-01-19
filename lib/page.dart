@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class MyApp extends StatefulWidget {
-  MyApp({super.key});
+class Second extends StatefulWidget {
+  const Second({super.key});
 
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Second> createState() => _SecondState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SecondState extends State<Second> {
   int right = 1;
   int left = 2;
 
@@ -21,91 +21,78 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.blue[200],
-        drawer: const Drawer(
-          child: CircleAvatar(
-            backgroundImage: AssetImage('images/123.png'),
-            radius: 10,
+    return Scaffold(
+      backgroundColor: Colors.blue[200],
+      appBar: AppBar(
+        backgroundColor: Colors.blue[900],
+        title: const Text(
+          'بطاقتي',
+          style: TextStyle(
+            fontFamily: 'Amiri',
           ),
         ),
-        appBar: AppBar(
-          backgroundColor: Colors.blue[900],
-          title: const Text(
-            'بطاقتي',
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          const CircleAvatar(
+            backgroundImage: AssetImage('images/1234.png'),
+            radius: 70,
+          ),
+          const Text(
+            'أبوبكر أحمدو الغزالي',
             style: TextStyle(
-              fontFamily: 'Amiri',
+                fontFamily: 'Amiri', fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          Card(
+            child: ListTile(
+              leading: Icon(
+                Icons.whatsapp_sharp,
+                color: Colors.green[600],
+              ),
+              title: Text(
+                '33440920',
+                style: TextStyle(
+                  color: Colors.green[600],
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              subtitle: Text('Whatsapp'),
+              trailing: Icon(Icons.desktop_access_disabled),
+              onTap: () {},
             ),
           ),
-        ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage('images/1234.png'),
-              radius: 70,
-            ),
-            const Text(
-              'أبوبكر أحمدو الغزالي',
-              style: TextStyle(
-                  fontFamily: 'Amiri',
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
-            ),
-            Card(
-              child: ListTile(
-                leading: Icon(
-                  Icons.whatsapp_sharp,
-                  color: Colors.green[600],
+          Text(
+            left == right ? 'مبروك لقد فزت' : 'حاول مرة أخرى',
+            style: TextStyle(
+                fontFamily: 'Amiri', fontSize: 22, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: TextButton(
+                      onPressed: () {
+                        randomImage();
+                      },
+                      child: Image.asset('images/$left.png')),
                 ),
-                title: Text(
-                  '33440920',
-                  style: TextStyle(
-                    color: Colors.green[600],
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                subtitle: Text('Whatsapp'),
-                trailing: Icon(Icons.desktop_access_disabled),
-                onTap: () {},
               ),
-            ),
-            Text(
-              left == right ? 'مبروك لقد فزت' : 'حاول مرة أخرى',
-              style: TextStyle(
-                  fontFamily: 'Amiri',
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
-            ),
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: TextButton(
-                        onPressed: () {
-                          randomImage();
-                        },
-                        child: Image.asset('images/$left.png')),
-                  ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: TextButton(
+                      onPressed: () {
+                        randomImage();
+                      },
+                      child: Image.asset('images/$right.png')),
                 ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: TextButton(
-                        onPressed: () {
-                          randomImage();
-                        },
-                        child: Image.asset('images/$right.png')),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

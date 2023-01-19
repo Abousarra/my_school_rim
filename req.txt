@@ -3,3 +3,8 @@ keytool -genkey -v -keystore D:\jks\upload-keystore.jks -keyalg RSA -keysize 204
 keytool -importkeystore -srckeystore D:\jks\upload-keystore.jks -destkeystore D:\jks\upload-keystore.jks -deststoretype pkcs12
 
 keytool -genkey -v -keystore D:\jks\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
+
+flutter pub get
+flutter pub run flutter_launcher_icons
+
+
