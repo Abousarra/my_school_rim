@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_school_rim/page.dart';
+import 'package:my_school_rim/naghmat.dart';
+import 'package:my_school_rim/tataboq.dart';
 
 void main() {
   runApp(Luanch());
@@ -25,6 +26,8 @@ class First extends StatefulWidget {
 }
 
 class _FirstState extends State<First> {
+  List<Widget> pages = [Tataboq(),Naghmat()];
+  int indexPage=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,20 +53,37 @@ class _FirstState extends State<First> {
         ),
       ),
       appBar: AppBar(
-        title: Text('data'),
+        title: Text(
+          'تطبيقي',
+          style: TextStyle(
+            fontFamily: 'Amiri',
+          ),
+        ),
       ),
       body: Column(
         children: [
-          Text('data'),
-          Expanded(child: Image.asset('images/appstore.png')),
-          TextButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((v) => Second()),
-                ));
-              },
-              child: Icon(Icons.beach_access))
+          Text(
+            'مرحبا بكم',
+            style: TextStyle(fontFamily: 'Amiri', fontSize: 22),
+          ),
+          Expanded(
+            child: Image.asset('images/appstore.png'),
+          ),
         ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'تطابق'),
+          BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'نغمات')
+        ],
+        currentIndex: indexPage,
+        onTap: (value) {
+          setState(() {
+            indexPage =value;
+          });
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: ((context) => pages[value])));
+        },
       ),
     );
   }

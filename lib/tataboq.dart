@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
-class Second extends StatefulWidget {
-  const Second({super.key});
+class Tataboq extends StatefulWidget {
+  const Tataboq({super.key});
 
   @override
-  State<Second> createState() => _SecondState();
+  State<Tataboq> createState() => _TataboqState();
 }
 
-class _SecondState extends State<Second> {
+class _TataboqState extends State<Tataboq> {
   int right = 1;
   int left = 2;
 

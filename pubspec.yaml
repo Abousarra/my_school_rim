@@ -47,6 +47,7 @@ flutter:
 
   assets:
     - images/
+    - assets/
   
   fonts:
     - family: Amiri
