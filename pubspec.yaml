@@ -15,7 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   rename: ^2.1.1
-  audioplayers: ^2.0.0
+  # audioplayers: ^2.0.0
   
   
   

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_school_rim/ikhtibar.dart';
 import 'package:my_school_rim/naghmat.dart';
 import 'package:my_school_rim/tataboq.dart';
 
@@ -26,7 +27,7 @@ class First extends StatefulWidget {
 }
 
 class _FirstState extends State<First> {
-  List<Widget> pages = [Tataboq(),Naghmat()];
+  List<Widget> pages = [Tataboq(),Naghmat(),Ekhtibar()];
   int indexPage=0;
   @override
   Widget build(BuildContext context) {
@@ -53,6 +54,7 @@ class _FirstState extends State<First> {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: Colors.blue[900],
         title: Text(
           'تطبيقي',
           style: TextStyle(
@@ -73,9 +75,11 @@ class _FirstState extends State<First> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'تطابق'),
-          BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'نغمات')
+          BottomNavigationBarItem(icon: Icon(Icons.expand_circle_down), label: 'تطابق',),
+          BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'نغمات'),
+          BottomNavigationBarItem(icon: Icon(Icons.temple_buddhist), label: 'اختبار'),
         ],
+        type: BottomNavigationBarType.fixed,
         currentIndex: indexPage,
         onTap: (value) {
           setState(() {
