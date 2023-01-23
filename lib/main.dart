@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:my_school_rim/constants.dart';
 import 'package:my_school_rim/ikhtibar.dart';
 import 'package:my_school_rim/naghmat.dart';
+import 'package:my_school_rim/store.dart';
 import 'package:my_school_rim/tataboq.dart';
 
 void main() {
@@ -14,6 +17,10 @@ class Luanch extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: GoogleFonts.amiriTextTheme(Theme.of(context).textTheme),
+        primaryColor: kPrimaryColor,
+      ),
       home: First(),
     );
   }
@@ -27,8 +34,8 @@ class First extends StatefulWidget {
 }
 
 class _FirstState extends State<First> {
-  List<Widget> pages = [Tataboq(),Naghmat(),Ekhtibar()];
-  int indexPage=0;
+  List<Widget> pages = [Tataboq(), Naghmat(), Ekhtibar(), Store()];
+  int indexPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,15 +82,23 @@ class _FirstState extends State<First> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.expand_circle_down), label: 'تطابق',),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.expand_circle_down),
+            label: 'تطابق',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.music_note), label: 'نغمات'),
-          BottomNavigationBarItem(icon: Icon(Icons.temple_buddhist), label: 'اختبار'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.temple_buddhist), label: 'اختبار'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.store),
+            label: 'المتجر',
+          ),
         ],
         type: BottomNavigationBarType.fixed,
         currentIndex: indexPage,
         onTap: (value) {
           setState(() {
-            indexPage =value;
+            indexPage = value;
           });
           Navigator.of(context)
               .push(MaterialPageRoute(builder: ((context) => pages[value])));
