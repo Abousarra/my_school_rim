@@ -60,7 +60,7 @@ class _EkhtibarState extends State<Ekhtibar> {
           expandedBotton(),
           TextButton(
             onPressed: () {
-              _showMyDialog();
+              showMyDialog();
             },
             style: ButtonStyle(
               //alignment: Alignment.center,
@@ -208,7 +208,7 @@ class _EkhtibarState extends State<Ekhtibar> {
     );
   }
 
-  Future<void> _showMyDialog() async {
+  Future<void> showMyDialog() async {
     return showDialog<void>(
       context: context,
       barrierDismissible: false, // user must tap button!
